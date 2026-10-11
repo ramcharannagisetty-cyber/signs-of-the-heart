@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Signs of the Heart</title>
+<meta name="description" content="A student-led cardiology awareness initiative: learn the signs of heart disease, check your numbers, and put heart-health billboards where people can see them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Signs of the Heart">
+<meta property="og:description" content="A student-led cardiology awareness project: learn the warning signs of heart disease, check your numbers, and help put heart-health billboards where people can see them.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 20%27%3E%3Cpath d=%27M0 12h8l3-7 4 13 4-15 3 9h12%27 fill=%27none%27 stroke=%27%23c8102e%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=3">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html" aria-label="Signs of the Heart, home">
+      <svg viewBox="0 0 34 20" aria-hidden="true"><path d="M0 12h8l3-7 4 13 4-15 3 9h12" fill="none" stroke="#c8102e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span data-org-name>Signs of the Heart</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#conditions">Conditions</a></li>
+      <li><a href="#check">Heart tools</a></li>
+      <li><a href="#billboards">Billboards</a></li>
+      <li><a href="#donate">Donate</a></li>
+      <li><a href="#about">About us</a></li>
+    </ul>
+    <a class="chip-911" href="tel:911">
+      <svg class="diamond" viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="3.5" width="13" height="13" transform="rotate(45 10 10)" fill="#1c1517"/><rect x="5.6" y="5.6" width="8.8" height="8.8" transform="rotate(45 10 10)" fill="#ffc72c"/><rect x="9.1" y="6.2" width="1.8" height="5" fill="#1c1517"/><rect x="9.1" y="12.2" width="1.8" height="1.8" fill="#1c1517"/></svg>
+      <span><span class="long">Emergency? </span><span class="call">Call </span>911</span>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="band band-ecg hero" aria-labelledby="hero-title">
+    <div class="wrap hero-wall">
+      <div class="hero-back one" aria-hidden="true"><div class="old-type">Know your numbers</div></div>
+      <div class="hero-back two" aria-hidden="true"><div class="old-type">Learn CPR</div></div>
+      <div class="hero-back three" aria-hidden="true"></div>
+      <div class="poster hero-poster" data-torn-card>
+        <span class="tape" aria-hidden="true"></span>
+        <div class="poster-inner">
+          <h1 class="h-display" id="hero-title">Your heart has been sending signs.</h1>
+          <p class="lede">Heart disease is the leading cause of death in the U.S. Some of it sends warning signs; some of it, like high blood pressure, only shows up when you check your numbers. We're students putting those signs where everyone can see them: here for now, and on billboards in our towns once we can fund them.</p>
+          <div class="btn-row">
+            <a class="btn" href="#conditions">Learn the signs</a>
+            <a class="btn btn-ink" href="#billboards">Get a billboard template</a>
+          </div>
+        </div>
+        <svg class="hero-ecg" viewBox="0 0 1000 70" preserveAspectRatio="none" aria-hidden="true">
+          <path class="trace" d="M0 40 H120 l10 -6 l10 6 H180 l6 8 l10 -46 l10 58 l8 -20 H300 l14 -10 l14 10 H420 l10 -6 l10 6 H480 l6 8 l10 -46 l10 58 l8 -20 H600 l14 -10 l14 10 H720 l10 -6 l10 6 H780 l6 8 l10 -46 l10 58 l8 -20 H900 l14 -10 l14 10 H1000"/>
+          <circle class="blip" cx="1000" cy="40" r="5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="band band-dark" id="facts" aria-labelledby="facts-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="facts-title">The road we're on</h2>
+        <p class="lede">Numbers from the CDC and American Heart Association. Every figure links to its source.</p>
+      </div>
+      <div class="plates" id="home-stats"></div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS -->
+  <section class="band band-paper" id="conditions" aria-labelledby="conditions-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="conditions-title">Know the signs, one condition at a time</h2>
+        <p class="lede">Seven plain-language guides. What it is, what to watch for, when to call 911, and what to ask your doctor.</p>
+      </div>
+      <div class="wall" id="wall"></div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="band band-ecg" id="check" aria-labelledby="check-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="check-title">Check in with your heart</h2>
+        <p class="lede">Four quick tools. None of them diagnose anything. They help you spot when it's time to act.</p>
+      </div>
+
+      <div class="tool-tabs" role="tablist" aria-label="Heart tools">
+        <button class="tool-tab" role="tab" id="tab-symptoms" aria-controls="panel-symptoms" aria-selected="true">When to get help</button>
+        <button class="tool-tab" role="tab" id="tab-numbers" aria-controls="panel-numbers" aria-selected="false" tabindex="-1">Know your numbers</button>
+        <button class="tool-tab" role="tab" id="tab-myths" aria-controls="panel-myths" aria-selected="false" tabindex="-1">Myth or fact</button>
+        <button class="tool-tab" role="tab" id="tab-cpr" aria-controls="panel-cpr" aria-selected="false" tabindex="-1">CPR beat trainer</button>
+      </div>
+
+      <div class="poster tool-panel" role="tabpanel" id="panel-symptoms" aria-labelledby="tab-symptoms" data-torn-card>
+        <h3 class="h-card">When to get help</h3>
+        <p class="tool-intro" id="sc-intro"></p>
+        <form id="sc-form">
+          <ul class="checklist" id="sc-list"></ul>
+          <div class="btn-row">
+            <button class="btn" type="submit">See what to do</button>
+            <button class="btn btn-ghost" type="reset">Clear</button>
+          </div>
+        </form>
+        <div class="result" id="sc-result" hidden aria-live="polite"></div>
+        <p class="disclaimer" id="sc-disclaimer"></p>
+      </div>
+
+      <div class="poster tool-panel" role="tabpanel" id="panel-numbers" aria-labelledby="tab-numbers" hidden data-torn-card>
+        <h3 class="h-card">Know your numbers</h3>
+        <p class="tool-intro">Type in your latest readings to see which range they fall in.</p>
+        <div class="tool-grid">
+          <form id="bp-form" novalidate>
+            <div class="field-row">
+              <div class="field"><label for="bp-sys">Top number (systolic)</label><input id="bp-sys" inputmode="numeric" type="number" min="60" max="260" placeholder="e.g. 128"></div>
+              <div class="field"><label for="bp-dia">Bottom number (diastolic)</label><input id="bp-dia" inputmode="numeric" type="number" min="30" max="160" placeholder="e.g. 82"></div>
+            </div>
+            <button class="btn btn-green" type="submit">Check blood pressure</button>
+            <div class="numbers-out" id="bp-out" hidden aria-live="polite"></div>
+            <p class="hint" id="bp-src"></p>
+          </form>
+          <form id="chol-form" novalidate>
+            <div class="field-row">
+              <div class="field"><label for="chol-measure">Which number?</label><select id="chol-measure"></select></div>
+              <div class="field"><label for="chol-val">Value (mg/dL)</label><input id="chol-val" inputmode="numeric" type="number" min="10" max="1000" placeholder="e.g. 190"></div>
+            </div>
+            <button class="btn btn-green" type="submit">Check cholesterol</button>
+            <div class="numbers-out" id="chol-out" hidden aria-live="polite"></div>
+            <p class="hint" id="chol-src"></p>
+          </form>
+        </div>
+        <p class="disclaimer" id="numbers-disclaimer"></p>
+      </div>
+
+      <div class="poster tool-panel" role="tabpanel" id="panel-myths" aria-labelledby="tab-myths" hidden data-torn-card>
+        <h3 class="h-card">Myth or fact</h3>
+        <p class="tool-intro">Tap a card to flip it.</p>
+        <div class="myths" id="myths"></div>
+      </div>
+
+      <div class="poster tool-panel" role="tabpanel" id="panel-cpr" aria-labelledby="tab-cpr" hidden data-torn-card>
+        <h3 class="h-card">CPR beat trainer</h3>
+        <p class="tool-intro" id="cpr-intro"></p>
+        <div class="cpr">
+          <button class="cpr-pad" id="cpr-pad" type="button" aria-describedby="cpr-help">Push</button>
+          <div>
+            <div class="bpm" aria-live="polite"><span id="cpr-bpm">0</span><small>pushes a minute</small></div>
+            <div class="zone" id="cpr-zone">Tap the circle (or press the space bar) at a steady beat.</div>
+            <div class="cpr-meter" aria-hidden="true"><i id="cpr-needle"></i></div>
+            <div class="cpr-scale" aria-hidden="true"><span>70</span><span>100</span><span>120</span><span>160</span></div>
+            <div class="btn-row">
+              <button class="btn btn-ink" type="button" id="cpr-metro" aria-pressed="false">Play a 110 beat</button>
+            </div>
+            <p class="hint" id="cpr-help"></p>
+          </div>
+        </div>
+        <ol class="cpr-steps" id="cpr-steps"></ol>
+        <p class="disclaimer" id="cpr-src"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BILLBOARDS -->
+  <section class="band band-night" id="billboards" aria-labelledby="billboards-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="billboards-title">Put the signs where people can see them</h2>
+        <p class="lede">Free billboard templates. Download one, put it up at a library, a clinic, a school or a real billboard, and email us where it went.</p>
+        <p><span class="ph-tag ph-tag-dark">The designs below are placeholders for now. Final versions are coming soon.</span></p>
+      </div>
+      <div class="counters" id="bb-counters">
+        <div class="counter"><b data-count="downloads">0</b><span>templates downloaded</span></div>
+        <div class="counter"><b data-count="placed">0</b><span>put up in public</span></div>
+        <div class="counter"><b data-count="reached">0</b><span>estimated daily views</span></div>
+        <span class="ph-tag ph-tag-dark" id="bb-preview-tag">Placeholder numbers, not real counts yet.</span>
+      </div>
+      <div class="road">
+        <div class="boards" id="boards" tabindex="0" aria-label="Billboard templates, scroll sideways"></div>
+        <div class="road-controls">
+          <button type="button" id="boards-prev" aria-label="Previous billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" id="boards-next" aria-label="Next billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-caution" type="button" id="report-btn">I put one up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIES -->
+  <section class="band band-paper" id="stories" aria-labelledby="stories-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="stories-title">Why this matters</h2>
+      </div>
+      <div class="stories" id="stories-list"></div>
+      <p class="placeholder-note">These are placeholder stories, not real people. Real stories, shared with permission, are coming soon.</p>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section class="band band-red" id="donate" aria-labelledby="donate-title" data-torn="top">
+    <div class="wrap donate-grid">
+      <div>
+        <h2 class="h-section" id="donate-title">Help fund our first billboard</h2>
+        <p class="lede">When donations open, they'll go toward printing and placing heart-health signs where people actually look: highways, bus stops, libraries and clinics.</p>
+      </div>
+      <div class="poster meter-card" data-torn-card>
+        <p class="meter-target" id="meter-target"></p>
+        <div class="meter" role="progressbar" aria-labelledby="meter-target" aria-valuemin="0" id="meter"><i></i></div>
+        <div class="meter-nums"><span id="meter-raised"></span><span id="meter-goal"></span></div>
+        <div class="chips" role="group" aria-label="Choose an amount" id="chips"></div>
+        <p class="chip-impact" id="chip-impact" aria-live="polite"></p>
+        <a class="btn is-disabled" id="donate-btn" aria-disabled="true">Online donations coming soon</a>
+        <p class="hint" id="donate-note" hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT: TEAM, SPONSORS, PRESS -->
+  <section class="band band-paper" id="about" aria-labelledby="about-title" data-torn="top">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h-section" id="about-title">Who's behind this</h2>
+        <p class="lede">A student-led initiative. Our facts come from the CDC, the American Heart Association, the NIH and other medical sources, linked on every guide.</p>
+      </div>
+      <div class="team" id="team"></div>
+      <h3 class="sub-head">Sponsors and press</h3>
+      <div class="first-row"><div id="sponsors"></div><div id="press"></div></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="band band-caution" aria-labelledby="signup-title" data-torn="top">
+    <div class="wrap signup">
+      <div>
+        <h2 class="h-section" id="signup-title">Heart tips by email</h2>
+        <p class="lede" style="color:var(--ink)">We're starting a monthly heart tip email: short, sourced, never spam. Signing up opens your email app with a note to us. Press send to join.</p>
+      </div>
+      <form class="signup-form-wrap" id="signup" novalidate>
+        <label class="visually-hidden" for="signup-email">Email address</label>
+        <div class="signup-form">
+          <input id="signup-email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="btn btn-ink" type="submit">Sign up</button>
+        </div>
+        <p class="signup-msg" id="signup-msg" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="band band-dark footer" data-torn="top">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2 data-org-name>Signs of the Heart</h2>
+        <p>A student-led cardiology awareness initiative. This site is for education and is not medical advice. If you think you're having a heart attack or stroke, call 911.</p>
+      </div>
+      <div>
+        <h2>Conditions</h2>
+        <ul id="footer-topics"></ul>
+      </div>
+      <div>
+        <h2>Get involved</h2>
+        <ul>
+          <li><a href="#billboards">Billboard templates</a></li>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#check">Heart tools</a></li>
+          <li><a href="#" data-mailto="Hello from the Signs of the Heart website">Contact us</a></li>
+          <li class="footer-mail" data-emails></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">© <span id="year"></span> <span data-org-name>Signs of the Heart</span>. Facts sourced from the CDC, AHA, NHLBI and other medical sources, linked where used.</div>
+  </div>
+</footer>
+
+<!-- download gate -->
+<dialog class="modal" id="gate" aria-labelledby="gate-title">
+  <div class="poster" data-torn-card>
+    <button class="modal-close" type="button" data-close aria-label="Close">×</button>
+    <form id="gate-form" method="dialog" novalidate>
+      <div id="gate-ask">
+        <h2 class="h-card" id="gate-title">Before you download</h2>
+        <p class="tool-intro">It's free. Tell us what you plan to do with this template. Your answer stays in this browser and isn't sent to us.</p>
+        <fieldset class="choices">
+          <legend class="visually-hidden">What will you do with this design?</legend>
+          <label class="choice"><input type="radio" name="use" value="looking" required><span>Just looking at the design<small>Browsing, curious, or saving it for later.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="proposing"><span>Proposing it<small>Pitching it to a school, clinic, library, business or city.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="putting"><span>Putting it up soon<small>You have a spot lined up.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="placed"><span>I already put it up<small>Next you'll email us where it is so we can count it.</small></span></label>
+        </fieldset>
+        <div class="placement" id="placement" hidden></div>
+        <p class="hint" id="gate-error" aria-live="polite"></p>
+        <button class="btn" type="submit" id="gate-submit">Download template</button>
+      </div>
+      <div class="thanks" id="gate-thanks" hidden>
+        <h2 class="h-card">Downloading now</h2>
+        <p class="tool-intro" id="gate-thanks-text"></p>
+        <div class="btn-row" style="margin-top:0">
+          <a class="btn" id="gate-email" href="#" data-mailto="Billboard placed" hidden>Email us the details</a>
+          <button class="btn btn-ink" type="button" data-close>Done</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<template id="placement-fields">
+  <div class="field"><label for="pl-place">Place name</label><input id="pl-place" name="place" placeholder="e.g. Central Library, Route 9 billboard" required></div>
+  <div class="field-row">
+    <div class="field"><label for="pl-city">City and state</label><input id="pl-city" name="city" placeholder="e.g. Fremont, CA" required></div>
+    <div class="field"><label for="pl-type">Place type</label>
+      <select id="pl-type" name="type" required>
+        <option value="">Choose one</option>
+        <option>Billboard</option><option>Library</option><option>School or college</option><option>Clinic or hospital</option><option>Pharmacy</option><option>Community center</option><option>Bus stop or transit</option><option>Business</option><option>Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label for="pl-date" data-date-label>Date it goes up</label><input id="pl-date" name="date" type="date"></div>
+    <div class="field"><label for="pl-views">Estimated daily views</label><input id="pl-views" name="views" type="number" min="0" inputmode="numeric" placeholder="e.g. 500"><span class="hint">Rough guess of people who pass by each day.</span></div>
+  </div>
+  <div class="field" data-photo-field><label for="pl-photo">Photo (optional, you'll attach it to the email next)</label><input id="pl-photo" name="photo" type="file" accept="image/*"></div>
+</template>
+
+<script src="assets/data.base.js?v=3"></script>
+<script src="assets/data.content.js?v=3"></script>
+<script src="assets/app.js?v=3"></script>
+<script src="assets/home.js?v=3"></script>
+</body>
+</html>
