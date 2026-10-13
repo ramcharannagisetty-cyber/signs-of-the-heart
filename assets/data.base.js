@@ -11,11 +11,11 @@ window.SITE = {
     emails: ["nagisetty.ramcharan@gmail.com", "punjaniarmaan@gmail.com"], // Ramcharan and Armaan
   },
 
-  // "Be the first" cards. Each button opens an email to the founders with this subject line.
+  // Call-to-action cards. Each button opens an email to the founders with this subject line.
   firstOne: {
-    team: { title: "Join us", text: "Hello! You can be the first one to help build this: research, design, outreach or putting up billboards.", subject: "I want to help build Signs of the Heart", body: "Hi,\n\nI'd like to help build Signs of the Heart. My name is ___ and I can help with ___.\n" },
-    advisor: { title: "Be a medical advisor", text: "Hello! Are you a cardiologist, nurse or health educator? You can be the first one to review our guides.", subject: "Medical advisor for Signs of the Heart", body: "Hi,\n\nI'm ___ (role: ___) and I'd be open to reviewing your heart health guides.\n" },
-    stories: { title: "Be the first to share your story", text: "Hello! Has heart disease touched your life or your family's? You can be the first one to share your story here, with your permission.", subject: "My story for Signs of the Heart", body: "Hi,\n\nI'd like to share my story. You may / may not use my name.\n" },
+    team: { title: "Join us", text: "Help us build this: research, design, outreach or putting up billboards.", cta: "Join us", subject: "I want to help build Signs of the Heart", body: "Hi,\n\nI'd like to help build Signs of the Heart. My name is ___ and I can help with ___.\n" },
+    advisor: { title: "Be a medical advisor", text: "Are you a cardiologist, nurse or health educator? Help us review our guides.", cta: "Become an advisor", subject: "Medical advisor for Signs of the Heart", body: "Hi,\n\nI'm ___ (role: ___) and I'd be open to reviewing your heart health guides.\n" },
+    stories: { title: "Share your story", text: "Has heart disease touched your life or your family's? Share your story here, with your permission.", cta: "Share your story", subject: "My story for Signs of the Heart", body: "Hi,\n\nI'd like to share my story. You may / may not use my name.\n" },
   },
 
   // Order and look of the condition posters on the homepage wall.

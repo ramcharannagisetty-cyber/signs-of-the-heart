@@ -290,13 +290,13 @@
     reveal($(".finder"));
   }
 
-  // "be the first" card: button opens one email to both founders; addresses also shown for webmail users
+  // call-to-action card: button opens one email to both founders; addresses also shown for webmail users
   const emailsText = ((SITE.contact && SITE.contact.emails) || []).join(" and ");
   const firstCard = (f, cls) => f ? `
     <div class="first-card ${cls || ""}">
       <b>${esc(f.title)}</b>
       <p>${esc(f.text)}</p>
-      <a class="btn" href="${esc(mailto(f.subject, f.body))}">Click here to be the first one</a>
+      <a class="btn" href="${esc(mailto(f.subject, f.body))}">${esc(f.cta || "Email us")}</a>
       ${emailsText ? `<span class="first-mail">Or write to ${esc(emailsText)}</span>` : ""}
     </div>` : "";
 

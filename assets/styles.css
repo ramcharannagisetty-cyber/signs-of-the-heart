@@ -611,7 +611,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .board-meta h3 .ph-tag { margin-left: 0.4rem; }
 .meter-target .ph-tag { margin-left: 0.3rem; }
 
-/* "be the first" cards */
+/* call-to-action cards */
 .first-row { display: grid; grid-template-columns: minmax(0, 560px); margin-top: 1.2rem; }
 .first-card {
   border: 3px dashed var(--artery); border-radius: 18px; padding: 1.4rem 1.5rem; background: #fff;
@@ -634,7 +634,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .first-mail { font-size: 0.88rem; color: var(--ink-soft); overflow-wrap: anywhere; }
 .stories .first-card { align-self: stretch; }
 .chips .ph-tag { align-self: center; }
-/* team: two founders on the left, the two "be the first" cards stacked on the right */
+/* team: two founders on the left, the two call-to-action cards stacked on the right */
 @media (min-width: 900px) {
   .team { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .team .member { grid-row: span 2; }
