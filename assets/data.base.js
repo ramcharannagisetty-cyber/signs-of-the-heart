@@ -55,11 +55,38 @@ window.SITE = {
     size: "48 × 14 ft billboard bulletin",
   },
 
-  // PLACEHOLDER stories (not real people). Replace with real ones, shared with permission,
-  // then remove "placeholder: true".
+  // Real stories, shared publicly by these women through NHLBI's The Heart Truth program.
+  // Summaries are our own words, from public reports. "video" is the YouTube id of NHLBI's video.
+  storySource: { name: "The Heart Truth®, a program of the National Heart, Lung, and Blood Institute (NHLBI)", url: "https://www.nhlbi.nih.gov/education/heart-truth/yes-you-can-prevent-heart-disease" },
   stories: [
-    { quote: "A real story from someone living with heart failure will go here, shared with their permission.", name: "Real story coming soon", role: "Heart failure", placeholder: true },
-    { quote: "A real story from someone diagnosed with FMD or SCAD will go here, shared with their permission.", name: "Real story coming soon", role: "FMD and SCAD", placeholder: true },
+    {
+      name: "Kisha Stewart", tag: "SCAD heart attack", video: "BkC9jg3ji6I",
+      headline: "A heart attack two weeks after giving birth",
+      summary: "Kisha was 31 and had just had a baby when crushing chest pain sent her to the ER. A nurse at check-in thought it was a panic attack. It was a heart attack caused by SCAD, a sudden tear inside a heart artery. SCAD mostly affects women, often healthy ones, and can happen around pregnancy.",
+      sign: "Chest pain is a warning sign, even if you're young, healthy or just had a baby. Call 911 and say you think it's your heart.",
+      topic: "fmd-scad", link: "Read our FMD and SCAD guide",
+    },
+    {
+      name: "Andrea Engfer", tag: "Stroke after pregnancy", video: "AqQF_D_rTUk",
+      headline: "A stroke five days after her baby was born",
+      summary: "Late in her pregnancy, Andrea was diagnosed with preeclampsia, a dangerous kind of high blood pressure. Five days after giving birth, she woke up with a headache that became severe. It was a stroke. She woke from a coma 12 days later and had to relearn how to walk, talk and read.",
+      sign: "A severe headache in the weeks after giving birth can be an emergency, especially with high blood pressure. Get help right away.",
+      topic: "afib-stroke", link: "Learn the signs of stroke",
+    },
+    {
+      name: "Jude Maboné", tag: "Heart attacks as a teen", video: "3Qn_abSkqKc",
+      headline: "Six heart attacks before age 18",
+      summary: "Jude had her first heart attack at 16, while running. She had five more before she turned 18. Doctors found coronary vasospasm: her heart's arteries can suddenly tighten and cut off blood flow. She became Miss District of Columbia 2023 and now pushes for heart screenings, CPR training and AEDs for young people.",
+      sign: "Teens and athletes can have heart attacks too. Chest pain during exercise is never normal: stop and get checked.",
+      topic: "heart-attack-cpr", link: "Learn heart attack signs and CPR",
+    },
+    {
+      name: "SherWanda Knight", tag: "Preeclampsia", video: "JhJjGI5l-k4",
+      headline: "Living through preeclampsia",
+      summary: "SherWanda shares her firsthand experience with preeclampsia, a dangerous rise in blood pressure during or after pregnancy, and urges women to learn about their own heart health. Preeclampsia also raises a woman's risk of heart disease and stroke later in life.",
+      sign: "During or after pregnancy, a bad headache, blurry vision or sudden swelling in the face or hands can mean high blood pressure. Get checked right away.",
+      topic: "hypertension", link: "Read our high blood pressure guide",
+    },
   ],
 
   // Team. Photos live in assets/team/.
