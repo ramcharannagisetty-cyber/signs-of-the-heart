@@ -652,3 +652,15 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .myth-wrap { display: grid; gap: 0.45rem; align-content: start; }
 .myth-src { font-size: 0.85rem; color: var(--ink-soft); }
 .footer-mail { color: var(--on-dark-soft); font-size: 0.9rem; overflow-wrap: anywhere; }
+
+/* billboard section: decorative highway sign + heartbeat line (replaces counters) */
+.road-sign { margin: 0 0 2.6rem; }
+.road-sign > svg:first-child { width: min(460px, 100%); height: auto; display: block; filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.35)); }
+.road-sign .road-pulse { height: 44px; margin: 0.8rem 0 0; }
+.road-sign .road-pulse path { stroke: var(--caution); stroke-width: 3; }
+
+/* finished billboard designs */
+.board-frame.has-img .board-face { outline: none; background: #0f1418; }
+.board-meta .dl-count { color: var(--on-dark-soft); font-size: 0.95rem; display: block; }
+.topic-boards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin: 1.6rem 0 0.4rem; }
+.topic-boards img { width: 100%; height: auto; display: block; border-radius: 4px; box-shadow: 0 0 0 3px #3b464d, 0 18px 30px rgba(0,0,0,0.4); }

@@ -19,6 +19,9 @@
   }
 
   document.title = `${t.name} | ${SITE.org.name}`;
+  const tb = $("#topic-boards");
+  if (tb) tb.innerHTML = ((SITE.billboards && SITE.billboards.templates) || []).filter((b) => b.topic === slug && b.image)
+    .map((b) => `<a href="index.html#billboards"><img src="${esc(b.image)}" alt="${esc(b.alt || b.title)}" loading="lazy"></a>`).join("");
   $("#t-kicker").textContent = t.kicker || t.name;
   $("#t-title").textContent = t.headline || t.name;
   $("#t-dek").textContent = t.dek;

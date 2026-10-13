@@ -8,12 +8,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Signs of the Heart">
 <meta property="og:description" content="A student-led cardiology awareness project: learn the warning signs of heart disease, check your numbers, and help put heart-health billboards where people can see them.">
+<meta property="og:url" content="https://heartsigns.vercel.app/">
 <meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://heartsigns.vercel.app/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 20%27%3E%3Cpath d=%27M0 12h8l3-7 4 13 4-15 3 9h12%27 fill=%27none%27 stroke=%27%23c8102e%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=3">
+<link rel="stylesheet" href="assets/styles.css?v=5">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -30,7 +32,6 @@
       <li><a href="#conditions">Conditions</a></li>
       <li><a href="#check">Heart tools</a></li>
       <li><a href="#billboards">Billboards</a></li>
-      <li><a href="#donate">Donate</a></li>
       <li><a href="#about">About us</a></li>
     </ul>
     <a class="chip-911" href="tel:911">
@@ -52,7 +53,7 @@
         <span class="tape" aria-hidden="true"></span>
         <div class="poster-inner">
           <h1 class="h-display" id="hero-title">Your heart has been sending signs.</h1>
-          <p class="lede">Heart disease is the leading cause of death in the U.S. Some of it sends warning signs; some of it, like high blood pressure, only shows up when you check your numbers. We're students putting those signs where everyone can see them: here for now, and on billboards in our towns once we can fund them.</p>
+          <p class="lede">Heart disease is the leading cause of death in the U.S. Some of it sends warning signs; some of it, like high blood pressure, only shows up when you check your numbers. We're students putting those signs where everyone can see them: here, and on billboards in our towns as the project grows.</p>
           <div class="btn-row">
             <a class="btn" href="#conditions">Learn the signs</a>
             <a class="btn btn-ink" href="#billboards">Get a billboard template</a>
@@ -176,24 +177,29 @@
     <div class="wrap">
       <div class="section-head">
         <h2 class="h-section" id="billboards-title">Put the signs where people can see them</h2>
-        <p class="lede">Free billboard templates. Download one, put it up at a library, a clinic, a school or a real billboard, and email us where it went.</p>
-        <p><span class="ph-tag ph-tag-dark">The designs below are placeholders for now. Final versions are coming soon.</span></p>
+        <p class="lede">18 free billboard designs, 3 for each topic. Download one, put it up at a library, a clinic, a school or a real billboard, and email us where it went.</p>
       </div>
-      <div class="counters" id="bb-counters">
-        <div class="counter"><b data-count="downloads">0</b><span>templates downloaded</span></div>
-        <div class="counter"><b data-count="placed">0</b><span>put up in public</span></div>
-        <div class="counter"><b data-count="reached">0</b><span>estimated daily views</span></div>
-        <span class="ph-tag ph-tag-dark" id="bb-preview-tag">Placeholder numbers, not real counts yet.</span>
+      <div class="road-sign" aria-hidden="true">
+        <svg viewBox="0 0 900 300" role="presentation">
+          <rect x="6" y="6" width="888" height="250" rx="28" fill="#0e6b47"/>
+          <rect x="22" y="22" width="856" height="218" rx="18" fill="none" stroke="#fff" stroke-width="7"/>
+          <text x="70" y="118" font-family="Overpass, Arial, sans-serif" font-weight="800" font-size="64" fill="#fff">Heart signs ahead</text>
+          <text x="70" y="196" font-family="Overpass, Arial, sans-serif" font-weight="600" font-size="46" fill="#cfe8dc">Next stop: your town</text>
+          <path d="M800 190 V92 M752 136 L800 88 L848 136" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="250" y="256" width="16" height="44" fill="#7d878d"/><rect x="634" y="256" width="16" height="44" fill="#7d878d"/>
+        </svg>
+        <svg class="ecg-rule road-pulse" viewBox="0 0 1000 60" preserveAspectRatio="none"><path d="M0 34 H300 l12 -8 l12 8 H380 l8 10 l12 -40 l12 50 l10 -20 H560 l16 -10 l16 10 H1000"/></svg>
       </div>
       <div class="road">
-        <div class="boards" id="boards" tabindex="0" aria-label="Billboard templates, scroll sideways"></div>
+        <div class="boards" id="boards" tabindex="0" aria-label="Billboard designs, scroll sideways"></div>
         <div class="road-controls">
           <button type="button" id="boards-prev" aria-label="Previous billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button type="button" id="boards-next" aria-label="Next billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
       </div>
       <div class="btn-row">
-        <button class="btn btn-caution" type="button" id="report-btn">I put one up</button>
+        <a class="btn btn-caution" href="#" data-mailto="I'd like to design a billboard for Signs of the Heart">I'd like to design one</a>
+        <button class="btn btn-ghost" type="button" id="report-btn">I put one up</button>
       </div>
     </div>
   </section>
@@ -209,26 +215,7 @@
     </div>
   </section>
 
-  <!-- DONATE -->
-  <section class="band band-red" id="donate" aria-labelledby="donate-title" data-torn="top">
-    <div class="wrap donate-grid">
-      <div>
-        <h2 class="h-section" id="donate-title">Help fund our first billboard</h2>
-        <p class="lede">When donations open, they'll go toward printing and placing heart-health signs where people actually look: highways, bus stops, libraries and clinics.</p>
-      </div>
-      <div class="poster meter-card" data-torn-card>
-        <p class="meter-target" id="meter-target"></p>
-        <div class="meter" role="progressbar" aria-labelledby="meter-target" aria-valuemin="0" id="meter"><i></i></div>
-        <div class="meter-nums"><span id="meter-raised"></span><span id="meter-goal"></span></div>
-        <div class="chips" role="group" aria-label="Choose an amount" id="chips"></div>
-        <p class="chip-impact" id="chip-impact" aria-live="polite"></p>
-        <a class="btn is-disabled" id="donate-btn" aria-disabled="true">Online donations coming soon</a>
-        <p class="hint" id="donate-note" hidden></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT: TEAM, SPONSORS, PRESS -->
+  <!-- ABOUT: TEAM -->
   <section class="band band-paper" id="about" aria-labelledby="about-title" data-torn="top">
     <div class="wrap">
       <div class="section-head">
@@ -236,8 +223,6 @@
         <p class="lede">A student-led initiative. Our facts come from the CDC, the American Heart Association, the NIH and other medical sources, linked on every guide.</p>
       </div>
       <div class="team" id="team"></div>
-      <h3 class="sub-head">Sponsors and press</h3>
-      <div class="first-row"><div id="sponsors"></div><div id="press"></div></div>
     </div>
   </section>
 
@@ -275,8 +260,7 @@
         <h2>Get involved</h2>
         <ul>
           <li><a href="#billboards">Billboard templates</a></li>
-          <li><a href="#donate">Donate</a></li>
-          <li><a href="#check">Heart tools</a></li>
+              <li><a href="#check">Heart tools</a></li>
           <li><a href="#" data-mailto="Hello from the Signs of the Heart website">Contact us</a></li>
           <li class="footer-mail" data-emails></li>
         </ul>
@@ -335,9 +319,9 @@
   <div class="field" data-photo-field><label for="pl-photo">Photo (optional, you'll attach it to the email next)</label><input id="pl-photo" name="photo" type="file" accept="image/*"></div>
 </template>
 
-<script src="assets/data.base.js?v=3"></script>
-<script src="assets/data.content.js?v=3"></script>
-<script src="assets/app.js?v=3"></script>
-<script src="assets/home.js?v=3"></script>
+<script src="assets/data.base.js?v=5"></script>
+<script src="assets/data.content.js?v=5"></script>
+<script src="assets/app.js?v=5"></script>
+<script src="assets/home.js?v=5"></script>
 </body>
 </html>

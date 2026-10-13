@@ -1,4 +1,4 @@
-/* Homepage: stats, condition wall, tools, billboards + download gate, donate, stories, team, signup. */
+/* Homepage: stats, condition wall, tools, billboards + download gate, stories, team, signup. */
 (function () {
   const { SITE, C, esc, fmt, topicBySlug, store, save, reveal, onVisible, countUp, tearCards, mailto } = window.SOH;
   const phTag = (text, dark) => `<span class="ph-tag${dark ? " ph-tag-dark" : ""}">${esc(text || "Placeholder")}</span>`;
@@ -243,40 +243,32 @@
   const local = store("soh-billboards", { downloads: 0, placed: 0, reached: 0, perTemplate: {}, reports: [] });
   // Shown counts are the placeholder seed only. There is no shared backend yet, so this
   // browser's own downloads/reports are kept locally and never mixed into the displayed numbers.
-  const totals = () => ({ downloads: BB.seed.downloads, placed: BB.seed.placed, reached: BB.seed.reached });
-  const perTemplate = (id) => BB.seed.perTemplate[id] || 0;
-  if (!BB.showPreviewTag) $("#bb-preview-tag").remove();
 
   const boards = $("#boards");
   boards.innerHTML = BB.templates.map((t) => `
     <article class="board" data-id="${esc(t.id)}">
-      <div class="board-frame">
+      <div class="board-frame${t.image ? " has-img" : ""}">
         <div class="board-lamps" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="board-face">
-          ${t.image ? `<img src="${esc(t.image)}" alt="${esc(t.title)} billboard design">` : `<div><span class="slot-label">${t.placeholder ? "Placeholder template" : "Your design here"}</span><span class="slot-size">${t.placeholder ? "Final design coming soon" : esc(t.title) + " template"}</span></div>`}
+          ${t.image ? `<img src="${esc(t.image)}" alt="${esc(t.alt || t.title + " billboard design")}" loading="lazy">` : `<div><span class="slot-label">${t.placeholder ? "Placeholder template" : "Your design here"}</span><span class="slot-size">${t.placeholder ? "Final design coming soon" : esc(t.title) + " template"}</span></div>`}
         </div>
       </div>
       <div class="board-catwalk" aria-hidden="true"></div>
       <div class="board-posts" aria-hidden="true"><span></span><span></span></div>
       <div class="board-meta">
-        <div><h3>${esc(t.title)} ${t.placeholder && t.image ? phTag("Placeholder", true) : ""}</h3><span class="dl-count" data-dl="${esc(t.id)}">${fmt(perTemplate(t.id))} downloads${BB.showPreviewTag ? " (placeholder)" : ""}</span></div>
-        <button class="btn btn-caution" type="button" data-download="${esc(t.id)}" aria-label="Download the ${esc(t.title)} ${t.placeholder ? "placeholder " : ""}template">Download</button>
+        <div><h3>${esc(t.title)}</h3>${t.design ? `<span class="dl-count">${esc(t.design)}</span>` : ""}</div>
+        <button class="btn btn-caution" type="button" data-download="${esc(t.id)}" aria-label="Download ${esc(t.title)} ${esc(t.design || "")}">Download</button>
       </div>
     </article>`).join("");
   $$(".board", boards).forEach((b) => onVisible(b, () => b.classList.add("lit")));
+  // decorative road sign + heartbeat line in place of counters
+  const pulse = $(".road-pulse");
+  if (pulse) { window.SOH.prepTrace(pulse); reveal(pulse); reveal($(".road-sign svg")); }
   const step = () => ($(".board", boards).getBoundingClientRect().width + 40);
   $("#boards-prev").addEventListener("click", () => boards.scrollBy({ left: -step(), behavior: "smooth" }));
   $("#boards-next").addEventListener("click", () => boards.scrollBy({ left: step(), behavior: "smooth" }));
 
-  function renderCounters(animate) {
-    const t = totals();
-    $$("[data-count]").forEach((el) => {
-      const v = t[el.dataset.count];
-      if (animate) countUp(el, v); else el.textContent = fmt(v);
-    });
-    $$("[data-dl]").forEach((el) => { el.textContent = `${fmt(perTemplate(el.dataset.dl))} downloads${BB.showPreviewTag ? " (placeholder)" : ""}`; });
-  }
-  onVisible($("#bb-counters"), () => renderCounters(true));
+
 
   // ---------- download gate ----------
   const gate = $("#gate"), form = $("#gate-form"), placement = $("#placement");
@@ -288,7 +280,7 @@
       if (reportOnly) {
         const f = document.createElement("div");
         f.className = "field";
-        f.innerHTML = `<label for="pl-template">Which design?</label><select id="pl-template" name="template" required>${BB.templates.map((t) => `<option value="${esc(t.id)}">${esc(t.title)}</option>`).join("")}</select>`;
+        f.innerHTML = `<label for="pl-template">Which design?</label><select id="pl-template" name="template" required>${BB.templates.map((t) => `<option value="${esc(t.id)}">${esc(t.title)}${t.design ? " – " + esc(t.design) : ""}</option>`).join("")}</select>`;
         placement.prepend(f);
       }
     }
@@ -308,7 +300,7 @@
     $(".choices", gate).hidden = reportOnly;
     $("#gate-ask .tool-intro").innerHTML = reportOnly
       ? "Thank you for spreading the word. Fill this in, then you'll email us the details so we can count it."
-      : `It's free. Tell us what you plan to do with the <b>${esc(current.title)}</b> template. Your answer stays in this browser and isn't sent to us. If you put one up, you'll be able to email us the details so we can count it.${current.placeholder ? " <b>Note:</b> this is a placeholder template with layout guides only. The final design is coming soon." : ""}`;
+      : `It's free. Tell us what you plan to do with the <b>${esc(current.title)}${current.design ? " (" + esc(current.design) + ")" : ""}</b> billboard. Your answer stays in this browser and isn't sent to us. If you put one up, you'll be able to email us the details so we can count it.${current.placeholder ? " <b>Note:</b> this is a placeholder template with layout guides only. The final design is coming soon." : ""}`;
     $("#gate-submit").textContent = reportOnly ? "Next: write the email" : "Download template";
     if (reportOnly) { $('input[value="placed"]', form).checked = true; setPlacement("placed"); }
     tearCards(gate);
@@ -342,7 +334,6 @@
       date: fd.get("date") || "", views, photo: photo && photo.name ? photo.name : "", at: new Date().toISOString(),
     });
     save("soh-billboards", local);
-    renderCounters(false);
 
     const msgs = {
       looking: current && current.placeholder
@@ -361,7 +352,7 @@
       const lines = [
         use === "placed" ? "I put up one of your designs." : "I'm planning to put up one of your designs.",
         "",
-        "Design: " + (tpl ? tpl.title : tid),
+        "Design: " + (tpl ? tpl.title + (tpl.design ? " " + tpl.design : "") : tid),
         "Place: " + (fd.get("place") || ""),
         "City and state: " + (fd.get("city") || ""),
         "Place type: " + (fd.get("type") || ""),
@@ -373,11 +364,22 @@
       emailBtn.hidden = false;
       $("#gate-thanks-text").textContent += ` Nothing opens when you tap the button? Write to ${emailsText}.`;
     } else emailBtn.hidden = true;
-    if (!reportOnly) downloadTemplate(current);
+    if (!reportOnly) {
+      downloadTemplate(current);
+      if (current.svg) $("#gate-thanks-text").insertAdjacentHTML("beforeend",
+        ` <br><a class="textlink" href="${esc(current.svg)}" download="${esc(current.id)}-billboard-vector.svg">Need it for a print shop? Get the vector file (SVG).</a>`);
+    }
   });
 
   // Builds a blank billboard template (48:14) as an SVG file with safe-area guides.
   function downloadTemplate(t) {
+    if (t.file) {
+      const link = document.createElement("a");
+      link.href = t.file;
+      link.download = `signs-of-the-heart-${t.id}.jpg`;
+      document.body.appendChild(link); link.click(); link.remove();
+      return;
+    }
     const W = 4800, H = 1400, m = 140;
     const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
@@ -423,47 +425,13 @@
   tearCards($("#stories-list"));
   $$("#stories-list .poster").forEach((p, i) => reveal(p, i * 0.1));
 
-  // ---------- donate ----------
-  const D = SITE.donate;
-  $("#meter-target").innerHTML = esc(D.target) + (D.placeholder ? " " + phTag("Placeholder goal") : "");
-  $("#meter-raised").textContent = D.raised ? `$${fmt(D.raised)} raised` : "$0 raised so far";
-  $("#meter-goal").textContent = `$${fmt(D.goal)} goal`;
-  const meter = $("#meter");
-  meter.setAttribute("aria-valuemax", D.goal); meter.setAttribute("aria-valuenow", D.raised);
-  meter.setAttribute("aria-valuetext", `$${fmt(D.raised)} of $${fmt(D.goal)}${D.placeholder ? ", placeholder goal" : ""}`);
-  onVisible(meter, () => { $("i", meter).style.width = Math.min(100, (D.raised / D.goal) * 100) + "%"; });
-  const chips = $("#chips"), impact = $("#chip-impact"), dbtn = $("#donate-btn"), dnote = $("#donate-note");
-  chips.innerHTML = D.chips.map((c, i) => `<button class="chip" type="button" aria-pressed="${i === 1}">$${c.amount}</button>`).join("") +
-    (D.placeholder ? phTag("Placeholder amounts") : "");
-  function pick(i) {
-    $$(".chip", chips).forEach((c, j) => c.setAttribute("aria-pressed", String(i === j)));
-    impact.textContent = D.chips[i].impact + (D.placeholder ? " (Placeholder example.)" : "");
-    if (D.link) dbtn.textContent = `Donate $${D.chips[i].amount}`;
-  }
-  $$(".chip", chips).forEach((c, i) => c.addEventListener("click", () => pick(i)));
-  if (D.link) {
-    dbtn.href = D.link;
-  } else {
-    // donations not open yet: say so plainly and offer the founders' email instead
-    dbtn.textContent = "Online donations coming soon";
-    dbtn.removeAttribute("href");
-    dbtn.setAttribute("aria-disabled", "true");
-    dbtn.classList.add("is-disabled");
-    dnote.innerHTML = `Donations aren't open yet. Want to hear when they open, or interested in sponsoring a billboard? <a class="textlink" href="${esc(mailto("Donations and sponsorship: Signs of the Heart"))}">Email us</a> at ${esc(emailsText)}.`;
-    dnote.hidden = false;
-  }
-  pick(1);
-  reveal($(".meter-card"));
-
-  // ---------- team, sponsors, press ----------
+  // ---------- team ----------
   const person = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="8" fill="#c8102e"/><path d="M4 40c0-10 7-16 16-16s16 6 16 16" fill="#c8102e"/></svg>';
   const F = SITE.firstOne || {};
   $("#team").innerHTML = (SITE.team || []).map((m) => `
     <div class="member"><div class="arch">${m.photo ? `<img src="${esc(m.photo)}" alt="${esc(m.name)}">` : person}</div>
       <b>${esc(m.name)}</b><span>${esc(m.role)}</span>${m.placeholder ? `<span style="margin-top:0.35rem">${phTag("Placeholder")}</span>` : ""}</div>`).join("") +
     firstCard(F.team, "in-team") + firstCard(F.advisor, "in-team");
-  $("#sponsors").innerHTML = firstCard(F.sponsors);
-  $("#press").innerHTML = firstCard(F.press);
 
   // ---------- newsletter: opens the visitor's email app with a sign-up note to the founders ----------
   $("#signup").addEventListener("submit", (e) => {
