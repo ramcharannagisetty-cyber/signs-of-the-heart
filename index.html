@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=5">
+<link rel="stylesheet" href="assets/styles.css?v=7">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -31,13 +31,10 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#conditions">Conditions</a></li>
       <li><a href="#check">Heart tools</a></li>
-      <li><a href="#billboards">Billboards</a></li>
+      <li><a href="#free-checks">Free checks</a></li>
+      <li><a href="billboards.html">Billboards</a></li>
       <li><a href="#about">About us</a></li>
     </ul>
-    <a class="chip-911" href="tel:911">
-      <svg class="diamond" viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="3.5" width="13" height="13" transform="rotate(45 10 10)" fill="#1c1517"/><rect x="5.6" y="5.6" width="8.8" height="8.8" transform="rotate(45 10 10)" fill="#ffc72c"/><rect x="9.1" y="6.2" width="1.8" height="5" fill="#1c1517"/><rect x="9.1" y="12.2" width="1.8" height="1.8" fill="#1c1517"/></svg>
-      <span><span class="long">Emergency? </span><span class="call">Call </span>911</span>
-    </a>
   </div>
 </header>
 
@@ -56,7 +53,7 @@
           <p class="lede">Heart disease is the leading cause of death in the U.S. Some of it sends warning signs; some of it, like high blood pressure, only shows up when you check your numbers. We're students putting those signs where everyone can see them: here, and on billboards in our towns as the project grows.</p>
           <div class="btn-row">
             <a class="btn" href="#conditions">Learn the signs</a>
-            <a class="btn btn-ink" href="#billboards">Get a billboard template</a>
+            <a class="btn btn-ink" href="#free-checks">Find a free check near you</a>
           </div>
         </div>
         <svg class="hero-ecg" viewBox="0 0 1000 70" preserveAspectRatio="none" aria-hidden="true">
@@ -172,34 +169,29 @@
     </div>
   </section>
 
-  <!-- BILLBOARDS -->
-  <section class="band band-night" id="billboards" aria-labelledby="billboards-title" data-torn="top">
+  <!-- FREE CHECKS -->
+  <section class="band band-paper" id="free-checks" aria-labelledby="free-title" data-torn="top">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="h-section" id="billboards-title">Put the signs where people can see them</h2>
-        <p class="lede">18 free billboard designs, 3 for each topic. Download one, put it up at a library, a clinic, a school or a real billboard, and email us where it went.</p>
+        <h2 class="h-section" id="free-title">Get checked for free near you</h2>
+        <p class="lede">High blood pressure and high cholesterol usually have no symptoms. The only way to know is to check. Find a free or low-cost check close to you.</p>
       </div>
-      <div class="road-sign" aria-hidden="true">
-        <svg viewBox="0 0 900 300" role="presentation">
-          <rect x="6" y="6" width="888" height="250" rx="28" fill="#0e6b47"/>
-          <rect x="22" y="22" width="856" height="218" rx="18" fill="none" stroke="#fff" stroke-width="7"/>
-          <text x="70" y="118" font-family="Overpass, Arial, sans-serif" font-weight="800" font-size="64" fill="#fff">Heart signs ahead</text>
-          <text x="70" y="196" font-family="Overpass, Arial, sans-serif" font-weight="600" font-size="46" fill="#cfe8dc">Next stop: your town</text>
-          <path d="M800 190 V92 M752 136 L800 88 L848 136" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="250" y="256" width="16" height="44" fill="#7d878d"/><rect x="634" y="256" width="16" height="44" fill="#7d878d"/>
-        </svg>
-        <svg class="ecg-rule road-pulse" viewBox="0 0 1000 60" preserveAspectRatio="none"><path d="M0 34 H300 l12 -8 l12 8 H380 l8 10 l12 -40 l12 50 l10 -20 H560 l16 -10 l16 10 H1000"/></svg>
-      </div>
-      <div class="road">
-        <div class="boards" id="boards" tabindex="0" aria-label="Billboard designs, scroll sideways"></div>
-        <div class="road-controls">
-          <button type="button" id="boards-prev" aria-label="Previous billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button type="button" id="boards-next" aria-label="Next billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="poster finder" data-torn-card>
+        <form class="finder-form" id="finder-form" novalidate>
+          <div class="field"><label for="finder-zip">Your ZIP code</label><input id="finder-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="e.g. 94536"></div>
+          <button class="btn" type="submit">Find places</button>
+          <button class="btn btn-ghost" type="button" id="finder-geo">Use my location</button>
+        </form>
+        <p class="finder-msg" id="finder-msg" aria-live="polite"></p>
+        <div class="tool-tabs finder-tabs" role="tablist" aria-label="Kind of place" id="finder-tabs"></div>
+        <div class="finder-body">
+          <div class="finder-info" id="finder-info"></div>
+          <div class="finder-map">
+            <iframe id="finder-map" title="Map of places near you" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+            <div class="finder-empty" id="finder-empty">Enter your ZIP code or use your location to see places on the map.</div>
+          </div>
         </div>
-      </div>
-      <div class="btn-row">
-        <a class="btn btn-caution" href="#" data-mailto="I'd like to design a billboard for Signs of the Heart">I'd like to design one</a>
-        <button class="btn btn-ghost" type="button" id="report-btn">I put one up</button>
+        <p class="disclaimer">Your ZIP code or location is only sent to Google Maps to show nearby places. We don't save it. Hours and services change, so call ahead. A machine reading is a screening, not a diagnosis: if it's high, check again and see a doctor.</p>
       </div>
     </div>
   </section>
@@ -259,7 +251,7 @@
       <div>
         <h2>Get involved</h2>
         <ul>
-          <li><a href="#billboards">Billboard templates</a></li>
+          <li><a href="#free-checks">Free checks near you</a></li>
               <li><a href="#check">Heart tools</a></li>
           <li><a href="#" data-mailto="Hello from the Signs of the Heart website">Contact us</a></li>
           <li class="footer-mail" data-emails></li>
@@ -270,58 +262,10 @@
   </div>
 </footer>
 
-<!-- download gate -->
-<dialog class="modal" id="gate" aria-labelledby="gate-title">
-  <div class="poster" data-torn-card>
-    <button class="modal-close" type="button" data-close aria-label="Close">×</button>
-    <form id="gate-form" method="dialog" novalidate>
-      <div id="gate-ask">
-        <h2 class="h-card" id="gate-title">Before you download</h2>
-        <p class="tool-intro">It's free. Tell us what you plan to do with this template. Your answer stays in this browser and isn't sent to us.</p>
-        <fieldset class="choices">
-          <legend class="visually-hidden">What will you do with this design?</legend>
-          <label class="choice"><input type="radio" name="use" value="looking" required><span>Just looking at the design<small>Browsing, curious, or saving it for later.</small></span></label>
-          <label class="choice"><input type="radio" name="use" value="proposing"><span>Proposing it<small>Pitching it to a school, clinic, library, business or city.</small></span></label>
-          <label class="choice"><input type="radio" name="use" value="putting"><span>Putting it up soon<small>You have a spot lined up.</small></span></label>
-          <label class="choice"><input type="radio" name="use" value="placed"><span>I already put it up<small>Next you'll email us where it is so we can count it.</small></span></label>
-        </fieldset>
-        <div class="placement" id="placement" hidden></div>
-        <p class="hint" id="gate-error" aria-live="polite"></p>
-        <button class="btn" type="submit" id="gate-submit">Download template</button>
-      </div>
-      <div class="thanks" id="gate-thanks" hidden>
-        <h2 class="h-card">Downloading now</h2>
-        <p class="tool-intro" id="gate-thanks-text"></p>
-        <div class="btn-row" style="margin-top:0">
-          <a class="btn" id="gate-email" href="#" data-mailto="Billboard placed" hidden>Email us the details</a>
-          <button class="btn btn-ink" type="button" data-close>Done</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</dialog>
 
-<template id="placement-fields">
-  <div class="field"><label for="pl-place">Place name</label><input id="pl-place" name="place" placeholder="e.g. Central Library, Route 9 billboard" required></div>
-  <div class="field-row">
-    <div class="field"><label for="pl-city">City and state</label><input id="pl-city" name="city" placeholder="e.g. Fremont, CA" required></div>
-    <div class="field"><label for="pl-type">Place type</label>
-      <select id="pl-type" name="type" required>
-        <option value="">Choose one</option>
-        <option>Billboard</option><option>Library</option><option>School or college</option><option>Clinic or hospital</option><option>Pharmacy</option><option>Community center</option><option>Bus stop or transit</option><option>Business</option><option>Other</option>
-      </select>
-    </div>
-  </div>
-  <div class="field-row">
-    <div class="field"><label for="pl-date" data-date-label>Date it goes up</label><input id="pl-date" name="date" type="date"></div>
-    <div class="field"><label for="pl-views">Estimated daily views</label><input id="pl-views" name="views" type="number" min="0" inputmode="numeric" placeholder="e.g. 500"><span class="hint">Rough guess of people who pass by each day.</span></div>
-  </div>
-  <div class="field" data-photo-field><label for="pl-photo">Photo (optional, you'll attach it to the email next)</label><input id="pl-photo" name="photo" type="file" accept="image/*"></div>
-</template>
-
-<script src="assets/data.base.js?v=5"></script>
-<script src="assets/data.content.js?v=5"></script>
-<script src="assets/app.js?v=5"></script>
-<script src="assets/home.js?v=5"></script>
+<script src="assets/data.base.js?v=7"></script>
+<script src="assets/data.content.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
+<script src="assets/home.js?v=7"></script>
 </body>
 </html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Billboards for partners | Signs of the Heart</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="A student-led cardiology awareness initiative: learn the signs of heart disease, check your numbers, and put heart-health billboards where people can see them.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Signs of the Heart">
+<meta property="og:description" content="A student-led cardiology awareness project: learn the warning signs of heart disease, check your numbers, and help put heart-health billboards where people can see them.">
+<meta property="og:url" content="https://heartsigns.vercel.app/billboards">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://heartsigns.vercel.app/billboards">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 20%27%3E%3Cpath d=%27M0 12h8l3-7 4 13 4-15 3 9h12%27 fill=%27none%27 stroke=%27%23c8102e%27 stroke-width=%273%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=7">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="index.html" aria-label="Signs of the Heart, home">
+      <svg viewBox="0 0 34 20" aria-hidden="true"><path d="M0 12h8l3-7 4 13 4-15 3 9h12" fill="none" stroke="#c8102e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span data-org-name>Signs of the Heart</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#conditions">Conditions</a></li>
+      <li><a href="index.html#check">Heart tools</a></li>
+      <li><a href="index.html#free-checks">Free checks</a></li>
+      <li><a href="billboards.html" aria-current="page">Billboards</a></li>
+      <li><a href="index.html#about">About us</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="band band-night" id="billboards" aria-labelledby="billboards-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h1 class="h-section" id="billboards-title">Billboards for partners</h1>
+        <p class="lede">For billboard companies, nonprofits, schools and clinics: 18 free, print-ready heart health designs, 3 for each topic. Download any of them as a full-size image or a vector file for print shops, or talk to us about putting one up.</p>
+        <div class="btn-row"><a class="btn btn-caution" href="#" data-mailto="Billboard partnership: Signs of the Heart">Talk to us about a billboard</a></div>
+      </div>
+      <div class="road-sign" aria-hidden="true">
+        <svg viewBox="0 0 900 300" role="presentation">
+          <rect x="6" y="6" width="888" height="250" rx="28" fill="#0e6b47"/>
+          <rect x="22" y="22" width="856" height="218" rx="18" fill="none" stroke="#fff" stroke-width="7"/>
+          <text x="70" y="118" font-family="Overpass, Arial, sans-serif" font-weight="800" font-size="64" fill="#fff">Heart signs ahead</text>
+          <text x="70" y="196" font-family="Overpass, Arial, sans-serif" font-weight="600" font-size="46" fill="#cfe8dc">Next stop: your town</text>
+          <path d="M800 190 V92 M752 136 L800 88 L848 136" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="250" y="256" width="16" height="44" fill="#7d878d"/><rect x="634" y="256" width="16" height="44" fill="#7d878d"/>
+        </svg>
+        <svg class="ecg-rule road-pulse" viewBox="0 0 1000 60" preserveAspectRatio="none"><path d="M0 34 H300 l12 -8 l12 8 H380 l8 10 l12 -40 l12 50 l10 -20 H560 l16 -10 l16 10 H1000"/></svg>
+      </div>
+      <div class="road">
+        <div class="boards" id="boards" tabindex="0" aria-label="Billboard designs, scroll sideways"></div>
+        <div class="road-controls">
+          <button type="button" id="boards-prev" aria-label="Previous billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" id="boards-next" aria-label="Next billboard"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-caution" href="#" data-mailto="I'd like to design a billboard for Signs of the Heart">I'd like to design one</a>
+        <button class="btn btn-ghost" type="button" id="report-btn">I put one up</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="band band-dark footer" data-torn="top">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h2 data-org-name>Signs of the Heart</h2>
+        <p>A student-led cardiology awareness initiative. This site is for education and is not medical advice. If you think you're having a heart attack or stroke, call 911.</p>
+      </div>
+      <div>
+        <h2>Conditions</h2>
+        <ul id="footer-topics"></ul>
+      </div>
+      <div>
+        <h2>Get involved</h2>
+        <ul>
+          <li><a href="index.html#free-checks">Free checks near you</a></li>
+              <li><a href="index.html#check">Heart tools</a></li>
+          <li><a href="#" data-mailto="Hello from the Signs of the Heart website">Contact us</a></li>
+          <li class="footer-mail" data-emails></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-base">© <span id="year"></span> <span data-org-name>Signs of the Heart</span>. Facts sourced from the CDC, AHA, NHLBI and other medical sources, linked where used.</div>
+  </div>
+</footer>
+
+<!-- download gate -->
+<dialog class="modal" id="gate" aria-labelledby="gate-title">
+  <div class="poster" data-torn-card>
+    <button class="modal-close" type="button" data-close aria-label="Close">×</button>
+    <form id="gate-form" method="dialog" novalidate>
+      <div id="gate-ask">
+        <h2 class="h-card" id="gate-title">Before you download</h2>
+        <p class="tool-intro">It's free. Tell us what you plan to do with this template. Your answer stays in this browser and isn't sent to us.</p>
+        <fieldset class="choices">
+          <legend class="visually-hidden">What will you do with this design?</legend>
+          <label class="choice"><input type="radio" name="use" value="looking" required><span>Just looking at the design<small>Browsing, curious, or saving it for later.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="proposing"><span>Proposing it<small>Pitching it to a school, clinic, library, business or city.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="putting"><span>Putting it up soon<small>You have a spot lined up.</small></span></label>
+          <label class="choice"><input type="radio" name="use" value="placed"><span>I already put it up<small>Next you'll email us where it is so we can count it.</small></span></label>
+        </fieldset>
+        <div class="placement" id="placement" hidden></div>
+        <p class="hint" id="gate-error" aria-live="polite"></p>
+        <button class="btn" type="submit" id="gate-submit">Download template</button>
+      </div>
+      <div class="thanks" id="gate-thanks" hidden>
+        <h2 class="h-card">Downloading now</h2>
+        <p class="tool-intro" id="gate-thanks-text"></p>
+        <div class="btn-row" style="margin-top:0">
+          <a class="btn" id="gate-email" href="#" data-mailto="Billboard placed" hidden>Email us the details</a>
+          <button class="btn btn-ink" type="button" data-close>Done</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<template id="placement-fields">
+  <div class="field"><label for="pl-place">Place name</label><input id="pl-place" name="place" placeholder="e.g. Central Library, Route 9 billboard" required></div>
+  <div class="field-row">
+    <div class="field"><label for="pl-city">City and state</label><input id="pl-city" name="city" placeholder="e.g. Fremont, CA" required></div>
+    <div class="field"><label for="pl-type">Place type</label>
+      <select id="pl-type" name="type" required>
+        <option value="">Choose one</option>
+        <option>Billboard</option><option>Library</option><option>School or college</option><option>Clinic or hospital</option><option>Pharmacy</option><option>Community center</option><option>Bus stop or transit</option><option>Business</option><option>Other</option>
+      </select>
+    </div>
+  </div>
+  <div class="field-row">
+    <div class="field"><label for="pl-date" data-date-label>Date it goes up</label><input id="pl-date" name="date" type="date"></div>
+    <div class="field"><label for="pl-views">Estimated daily views</label><input id="pl-views" name="views" type="number" min="0" inputmode="numeric" placeholder="e.g. 500"><span class="hint">Rough guess of people who pass by each day.</span></div>
+  </div>
+  <div class="field" data-photo-field><label for="pl-photo">Photo (optional, you'll attach it to the email next)</label><input id="pl-photo" name="photo" type="file" accept="image/*"></div>
+</template>
+
+<script src="assets/data.base.js?v=7"></script>
+<script src="assets/data.content.js?v=7"></script>
+<script src="assets/app.js?v=7"></script>
+<script src="assets/billboards.js?v=7"></script>
+</body>
+</html>
