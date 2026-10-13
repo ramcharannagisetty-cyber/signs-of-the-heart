@@ -70,7 +70,7 @@ def grain():
     return '<rect x="0" y="0" width="4800" height="1400" filter="url(#grain)"/>'
 
 
-SITE_URL = "heartsigns.vercel.app"
+SITE_URL = "myheartsigns.com"
 
 
 def signoff(color):
@@ -82,10 +82,10 @@ def signoff(color):
         plate, ink, mark = I, W, Y
     else:                     # dark board: caution-yellow strip, ink type
         plate, ink, mark = Y, I, R
-    return (rect(3180, 1140, 1560, 160, plate, 80)
-            + f'<path d="M3250 1222 h40 l14 -34 l20 64 l20 -76 l14 44 h44" fill="none" stroke="{mark}" '
-              f'stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>'
-            + t(4680, 1256, SITE_URL, 104, O, 800, ink, "end"))
+    return (rect(3370, 1128, 1370, 172, plate, 86)
+            + f'<path d="M3440 1214 h40 l15 -36 l21 68 l21 -80 l15 46 h46" fill="none" stroke="{mark}" '
+              f'stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>'
+            + t(4680, 1256, SITE_URL, 118, O, 800, ink, "end"))
 
 
 def ecg_grid():
