@@ -1,6 +1,6 @@
 /* Site settings and non-medical content.
    Medical content (stats, topic guides, tools) lives in data.content.js, which is generated
-   from fact-checked research. Edit this file for names, billboards, team and stories. */
+   from fact-checked research. Edit this file for names, billboards and team. */
 window.SITE = {
   org: {
     name: "Signs of the Heart",
@@ -15,7 +15,6 @@ window.SITE = {
   firstOne: {
     team: { title: "Join us", text: "Help us build this: research, design, outreach or putting up billboards.", cta: "Join us", subject: "I want to help build Signs of the Heart", body: "Hi,\n\nI'd like to help build Signs of the Heart. My name is ___ and I can help with ___.\n" },
     advisor: { title: "Be a medical advisor", text: "Are you a cardiologist, nurse or health educator? Help us review our guides.", cta: "Become an advisor", subject: "Medical advisor for Signs of the Heart", body: "Hi,\n\nI'm ___ (role: ___) and I'd be open to reviewing your heart health guides.\n" },
-    stories: { title: "Share your story", text: "Has heart disease touched your life or your family's? Share your story here, with your permission.", cta: "Share your story", subject: "My story for Signs of the Heart", body: "Hi,\n\nI'd like to share my story. You may / may not use my name.\n" },
   },
 
   // Order and look of the condition posters on the homepage wall.
@@ -54,40 +53,6 @@ window.SITE = {
     ],
     size: "48 × 14 ft billboard bulletin",
   },
-
-  // Real stories, shared publicly by these women through NHLBI's The Heart Truth program.
-  // Summaries are our own words, from public reports. "video" is the YouTube id of NHLBI's video.
-  storySource: { name: "The Heart Truth®, a program of the National Heart, Lung, and Blood Institute (NHLBI)", url: "https://www.nhlbi.nih.gov/education/heart-truth/yes-you-can-prevent-heart-disease" },
-  stories: [
-    {
-      name: "Kisha Stewart", tag: "SCAD heart attack", video: "BkC9jg3ji6I",
-      headline: "A heart attack two weeks after giving birth",
-      summary: "Kisha was 31 and had just had a baby when crushing chest pain sent her to the ER. A nurse at check-in thought it was a panic attack. It was a heart attack caused by SCAD, a sudden tear inside a heart artery. SCAD mostly affects women, often healthy ones, and can happen around pregnancy.",
-      sign: "Chest pain is a warning sign, even if you're young, healthy or just had a baby. Call 911 and say you think it's your heart.",
-      topic: "fmd-scad", link: "Read our FMD and SCAD guide",
-    },
-    {
-      name: "Andrea Engfer", tag: "Stroke after pregnancy", video: "AqQF_D_rTUk",
-      headline: "A stroke five days after her baby was born",
-      summary: "Late in her pregnancy, Andrea was diagnosed with preeclampsia, a dangerous kind of high blood pressure. Five days after giving birth, she woke up with a headache that became severe. It was a stroke. She woke from a coma 12 days later and had to relearn how to walk, talk and read.",
-      sign: "A severe headache in the weeks after giving birth can be an emergency, especially with high blood pressure. Get help right away.",
-      topic: "afib-stroke", link: "Learn the signs of stroke",
-    },
-    {
-      name: "Jude Maboné", tag: "Heart attacks as a teen", video: "3Qn_abSkqKc",
-      headline: "Six heart attacks before age 18",
-      summary: "Jude had her first heart attack at 16, while running. She had five more before she turned 18. Doctors found coronary vasospasm: her heart's arteries can suddenly tighten and cut off blood flow. She became Miss District of Columbia 2023 and now pushes for heart screenings, CPR training and AEDs for young people.",
-      sign: "Teens and athletes can have heart attacks too. Chest pain during exercise is never normal: stop and get checked.",
-      topic: "heart-attack-cpr", link: "Learn heart attack signs and CPR",
-    },
-    {
-      name: "SherWanda Knight", tag: "Preeclampsia", video: "JhJjGI5l-k4",
-      headline: "Living through preeclampsia",
-      summary: "SherWanda shares her firsthand experience with preeclampsia, a dangerous rise in blood pressure during or after pregnancy, and urges women to learn about their own heart health. Preeclampsia also raises a woman's risk of heart disease and stroke later in life.",
-      sign: "During or after pregnancy, a bad headache, blurry vision or sudden swelling in the face or hands can mean high blood pressure. Get checked right away.",
-      topic: "hypertension", link: "Read our high blood pressure guide",
-    },
-  ],
 
   // Team. Photos live in assets/team/.
   team: [

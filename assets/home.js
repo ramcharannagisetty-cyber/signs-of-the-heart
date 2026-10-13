@@ -1,4 +1,4 @@
-/* Homepage: stats, condition wall, tools, billboards + download gate, stories, team, signup. */
+/* Homepage: stats, condition wall, tools, free-check finder, team, signup. */
 (function () {
   const { SITE, C, esc, fmt, topicBySlug, store, save, reveal, onVisible, countUp, tearCards, mailto } = window.SOH;
   const phTag = (text, dark) => `<span class="ph-tag${dark ? " ph-tag-dark" : ""}">${esc(text || "Placeholder")}</span>`;
@@ -299,99 +299,6 @@
       <a class="btn" href="${esc(mailto(f.subject, f.body))}">${esc(f.cta || "Email us")}</a>
       ${emailsText ? `<span class="first-mail">Or write to ${esc(emailsText)}</span>` : ""}
     </div>` : "";
-
-  // ---------- stories: real-patient slider (switches every few seconds, pausable) ----------
-  const stories = SITE.stories || [];
-  const car = $("#story-car");
-  const src = SITE.storySource || {};
-  const ico = {
-    prev: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    next: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg>',
-    play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg>',
-  };
-  const facade = (s) => `
-    <button class="story-video" type="button" data-yt="${esc(s.video)}" aria-label="Play ${esc(s.name)}'s video">
-      <img src="https://i.ytimg.com/vi/${esc(s.video)}/hqdefault.jpg" alt="" loading="lazy">
-      <span class="story-play" aria-hidden="true">${ico.play}</span>
-    </button>`;
-  car.innerHTML = `
-    <div class="poster story-stage" data-torn-card>
-      <span class="tape" aria-hidden="true"></span>
-      <div class="story-slides" aria-live="off">
-        ${stories.map((s, i) => `
-        <article class="story-slide${i === 0 ? " is-on" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} of ${stories.length}: ${esc(s.name)}">
-          <div class="story-media">${facade(s)}</div>
-          <div class="story-text">
-            <span class="story-tag">${esc(s.tag)}</span>
-            <h3 class="story-name">${esc(s.name)}</h3>
-            <p class="story-head">${esc(s.headline)}</p>
-            <p class="story-sum">${esc(s.summary)}</p>
-            <p class="story-sign"><b>The sign to know</b>${esc(s.sign)}</p>
-            <a class="textlink" href="topic.html?t=${esc(s.topic)}">${esc(s.link)}</a>
-          </div>
-        </article>`).join("")}
-      </div>
-      <div class="story-bar">
-        <div class="story-btns">
-          <button type="button" class="story-btn" data-go="prev" aria-label="Previous story">${ico.prev}</button>
-          <button type="button" class="story-btn story-pause" aria-label="Pause stories">${ico.pause}</button>
-          <button type="button" class="story-btn" data-go="next" aria-label="Next story">${ico.next}</button>
-        </div>
-        <div class="story-dots">
-          ${stories.map((s, i) => `<button type="button" class="story-dot" data-i="${i}" aria-label="Show ${esc(s.name)}'s story"${i === 0 ? ' aria-current="true"' : ""}>${esc(s.name.split(" ")[0])}</button>`).join("")}
-        </div>
-      </div>
-      <div class="story-progress" aria-hidden="true"><i></i></div>
-    </div>
-    <p class="story-credit">These women shared their stories publicly through ${src.url ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.name)}</a>` : esc(src.name || "")}. Videos are NHLBI's and play from YouTube. Summaries are in our own words, from public reports.</p>`;
-  $("#story-share").innerHTML = firstCard((SITE.firstOne || {}).stories);
-  tearCards(car);
-  reveal($(".story-stage", car));
-
-  const slides = $$(".story-slide", car), dots = $$(".story-dot", car);
-  const pauseBtn = $(".story-pause", car), bar = $(".story-progress i", car);
-  const DUR = 10000;
-  let cur = 0, elapsed = 0, paused = !!window.SOH.reduceMotion, inView = false;
-  const setPaused = (p) => {
-    paused = p;
-    pauseBtn.innerHTML = p ? ico.play : ico.pause;
-    pauseBtn.setAttribute("aria-label", p ? "Play stories" : "Pause stories");
-  };
-  const stopVideos = () => $$(".story-media", car).forEach((m, i) => { if (m.querySelector("iframe")) m.innerHTML = facade(stories[i]); });
-  const show = (i) => {
-    stopVideos();
-    cur = (i + slides.length) % slides.length;
-    slides.forEach((sl, k) => sl.classList.toggle("is-on", k === cur));
-    dots.forEach((d, k) => d.toggleAttribute("aria-current", k === cur));
-    elapsed = 0; bar.style.width = "0%";
-  };
-  car.addEventListener("click", (e) => {
-    const go = e.target.closest("[data-go]"), dot = e.target.closest(".story-dot");
-    const vid = e.target.closest(".story-video");
-    if (go) show(cur + (go.dataset.go === "next" ? 1 : -1));
-    else if (dot) show(+dot.dataset.i);
-    else if (e.target.closest(".story-pause")) setPaused(!paused);
-    else if (vid) {
-      setPaused(true);
-      vid.parentElement.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(vid.dataset.yt)}?autoplay=1&rel=0" title="${esc(vid.getAttribute("aria-label").replace(/^Play /, ""))}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
-    }
-  });
-  car.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") show(cur + 1);
-    else if (e.key === "ArrowLeft") show(cur - 1);
-  });
-  if ("IntersectionObserver" in window) new IntersectionObserver((es) => { inView = es[0].isIntersecting; }, { threshold: 0.15 }).observe(car);
-  else inView = true;
-  setPaused(paused);
-  let last = performance.now();
-  setInterval(() => {
-    const now = performance.now(), dt = Math.min(now - last, 1000); last = now;
-    if (paused || !inView || document.hidden || slides.length < 2) return;
-    elapsed += dt;
-    if (elapsed >= DUR) show(cur + 1);
-    else bar.style.width = (elapsed / DUR * 100).toFixed(2) + "%";
-  }, 100);
 
   // ---------- team ----------
   const person = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="14" r="8" fill="#c8102e"/><path d="M4 40c0-10 7-16 16-16s16 6 16 16" fill="#c8102e"/></svg>';
