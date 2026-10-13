@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#888}svg{display:block;width:1600px;height:467px}</style></head>
+<body><div id="a"></div><script>
+const f=new URLSearchParams(location.search).get('f');
+fetch(f).then(r=>r.text()).then(t=>{document.getElementById('a').innerHTML=t;});
+</script></body></html>
