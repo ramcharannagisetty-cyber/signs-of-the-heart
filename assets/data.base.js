@@ -56,8 +56,8 @@ window.SITE = {
 
   // Team. Photos live in assets/team/.
   team: [
-    { name: "Ramcharan Nagisetty", role: "Co-founder", photo: "assets/team/ramcharan.jpg" },
-    { name: "Armaan Punjani", role: "Co-founder", photo: "assets/team/armaan.jpg" },
+    { name: "Ramcharan Nagisetty", role: "Co-founder", photo: "assets/team/ramcharan.jpg?v=2" },
+    { name: "Armaan Punjani", role: "Co-founder", photo: "assets/team/armaan.jpg?v=2" },
   ],
 
 };
