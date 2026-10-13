@@ -62,11 +62,10 @@ window.SITE = {
     { quote: "A real story from someone diagnosed with FMD or SCAD will go here, shared with their permission.", name: "Real story coming soon", role: "FMD and SCAD", placeholder: true },
   ],
 
-  // PLACEHOLDER team. Replace names, roles and add photos (photo: "assets/team/name.jpg"),
-  // then remove "placeholder: true" from each real person.
+  // Team. Photos live in assets/team/.
   team: [
-    { name: "Founder name", role: "Co-founder", placeholder: true },
-    { name: "Founder name", role: "Co-founder", placeholder: true },
+    { name: "Ramcharan Nagisetty", role: "Co-founder", photo: "assets/team/ramcharan.jpg" },
+    { name: "Armaan Punjani", role: "Co-founder", photo: "assets/team/armaan.jpg" },
   ],
 
 };

@@ -502,6 +502,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: grid; place-items: center; border: 2px solid #ecd2cc;
 }
 .arch svg { width: 46%; opacity: 0.4; }
+.arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
 .member b { font-family: var(--serif); font-size: 1.4rem; line-height: 1.1; }
 .member span { color: var(--ink-soft); font-size: 1rem; }
 .partners { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1rem; margin-top: 1.6rem; }
