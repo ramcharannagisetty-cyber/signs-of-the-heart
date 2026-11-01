@@ -57,10 +57,27 @@
   }
   form.addEventListener("change", (e) => { if (e.target.name === "use") setPlacement(e.target.value); });
 
+  // ---------- sizes: every design comes in several shapes ----------
+  const FORMATS = BB.formats || [{ id: "billboard", label: "Billboard", ratio: "48 × 14", use: "" }];
+  const fmtFile = (t, f, ext) => f === "billboard"
+    ? (ext === "svg" ? t.svg : ext === "thumb" ? t.image : t.file)
+    : `${BB.formatDir}${t.id}-${f}${ext === "thumb" ? "-thumb.jpg" : "." + ext}`;
+  function renderSizes(t) {
+    $("#size-grid").innerHTML = FORMATS.map((f, i) => `
+      <label class="size-opt">
+        <input type="radio" name="size" value="${esc(f.id)}"${i === 0 ? " checked" : ""}>
+        <span class="size-thumb"><img src="${esc(fmtFile(t, f.id, "thumb"))}" alt="" loading="lazy"></span>
+        <span class="size-name">${esc(f.label)} <b>${esc(f.ratio)}</b></span>
+        <small>${esc(f.use)}</small>
+      </label>`).join("");
+  }
+
   function openGate(id, report) {
     reportOnly = !!report;
     current = BB.templates.find((t) => t.id === id) || BB.templates[0];
     form.reset(); placement.innerHTML = ""; placement.hidden = true;
+    $("#gate-sizes").hidden = reportOnly;
+    if (!reportOnly) renderSizes(current);
     $("#gate-error").textContent = "";
     $("#gate-ask").hidden = false; $("#gate-thanks").hidden = true;
     $("#gate-title").textContent = reportOnly ? "Tell us where it went up" : "Before you download";
@@ -132,18 +149,20 @@
       $("#gate-thanks-text").textContent += ` Nothing opens when you tap the button? Write to ${emailsText}.`;
     } else emailBtn.hidden = true;
     if (!reportOnly) {
-      downloadTemplate(current);
-      if (current.svg) $("#gate-thanks-text").insertAdjacentHTML("beforeend",
-        ` <br><a class="textlink" href="${esc(current.svg)}" download="${esc(current.id)}-billboard-vector.svg">Need it for a print shop? Get the vector file (SVG).</a>`);
+      const size = fd.get("size") || "billboard";
+      downloadTemplate(current, size);
+      const svgFile = fmtFile(current, size, "svg");
+      if (svgFile) $("#gate-thanks-text").insertAdjacentHTML("beforeend",
+        ` <br><a class="textlink" href="${esc(svgFile)}" download="signs-of-the-heart-${esc(current.id)}-${esc(size)}.svg">Need it for a print shop? Get the vector file (SVG).</a>`);
     }
   });
 
   // Builds a blank billboard template (48:14) as an SVG file with safe-area guides.
-  function downloadTemplate(t) {
+  function downloadTemplate(t, size) {
     if (t.file) {
       const link = document.createElement("a");
-      link.href = t.file;
-      link.download = `signs-of-the-heart-${t.id}.jpg`;
+      link.href = fmtFile(t, size || "billboard", "jpg");
+      link.download = `signs-of-the-heart-${t.id}-${size || "billboard"}.jpg`;
       document.body.appendChild(link); link.click(); link.remove();
       return;
     }

@@ -52,6 +52,16 @@ window.SITE = {
       { id: "stroke-C", title: "AFib and stroke", design: "Design C", topic: "afib-stroke", image: "assets/billboards/stroke-C.jpg", file: "assets/billboards/stroke-C-full.jpg", svg: "assets/billboards/stroke-C.svg", alt: "Fluttering heartbeat? AFib can lead to stroke. See a doctor." },
     ],
     size: "48 × 14 ft billboard bulletin",
+    // Every design also comes in these shapes, re-laid out for each one (not cropped).
+    // Files: assets/billboards/formats/<id>-<format>.jpg / .svg / -thumb.jpg (billboard uses the main files above).
+    formatDir: "assets/billboards/formats/",
+    formats: [
+      { id: "billboard", label: "Billboard", ratio: "48 × 14", use: "Roadside billboards" },
+      { id: "square", label: "Square", ratio: "1:1", use: "Instagram and Facebook posts" },
+      { id: "portrait", label: "Portrait", ratio: "4:5", use: "Instagram feed, flyers, posters" },
+      { id: "story", label: "Story", ratio: "9:16", use: "Stories, Reels, TikTok, phone screens" },
+      { id: "wide", label: "Widescreen", ratio: "16:9", use: "TV screens, slides, YouTube" },
+    ],
   },
 
   // Team. Photos live in assets/team/.

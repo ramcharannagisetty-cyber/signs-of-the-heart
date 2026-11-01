@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=block" rel="stylesheet">
+<style>html,body{margin:0;background:#fff;overflow:hidden}svg{display:block}</style></head>
+<body><div id="a"></div><script>
+// load every face the boards use before drawing, so no text is drawn blank or in a fallback font
+const faces = ['800 40px "EB Garamond"', '700 40px "EB Garamond"', 'italic 700 40px "EB Garamond"', 'italic 800 40px "EB Garamond"',
+               '600 40px Overpass', '700 40px Overpass', '800 40px Overpass', '900 40px Overpass'];
+const f = new URLSearchParams(location.search).get('f');
+Promise.all(faces.map(x => document.fonts.load(x, 'Abc'))).then(() => document.fonts.ready)
+  .then(() => fetch(f)).then(r => r.text()).then(t => { document.getElementById('a').innerHTML = t; });
+</script></body></html>

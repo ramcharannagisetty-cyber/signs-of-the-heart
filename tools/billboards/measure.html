@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Overpass:wght@400..900&display=block" rel="stylesheet">
+</head><body><pre id="out">pending</pre><script>
+(async () => {
+  const req = await fetch('measure-req.json').then(r => r.json());
+  const fam = { G: '"EB Garamond"', O: 'Overpass' };
+  const font = (k) => { const [f, w, i] = k.split('|'); return `${i === '1' ? 'italic ' : ''}${w} 1000px ${fam[f]}`; };
+  const specs = [...new Set(req.map(k => k.split('|').slice(0, 3).join('|')))];
+  for (const s of specs) await document.fonts.load(font(s), 'Abc');
+  await document.fonts.ready;
+  const ok = specs.every(s => document.fonts.check(font(s)));
+  const c = document.createElement('canvas').getContext('2d');
+  const res = {};
+  for (const k of req) { c.font = font(k); res[k] = c.measureText(k.split('|').slice(3).join('|')).width; }
+  document.getElementById('out').textContent = ok ? JSON.stringify(res) : 'FONTS NOT LOADED';
+})();
+</script></body></html>
